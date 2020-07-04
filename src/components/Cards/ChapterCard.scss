@@ -1,0 +1,17 @@
+.block {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  background-color: transparent;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  .number {
+    font-size: 18;
+    font-weight: 600;
+    color: #aaa;
+  }
+}
