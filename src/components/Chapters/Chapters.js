@@ -1,14 +1,18 @@
 import React from 'react';
-import ChapterCard from '../Cards/ChapterCard';
 import './Chapters.scss';
-const Chapters = ({ surah }) => {
+import { useStateValue } from '../../context/StateProvider';
+import ChapterCard from '../Cards/ChapterCard';
+
+const Chapters = () => {
+  const [{ chapters }] = useStateValue();
+  
   return (
     <div className='row justify-content-between'>
       <div className='col-md-6 col-lg-4 my-3'>
         <ul className='chapter-cards'>
-          {surah.map((item, i) => (
+          {chapters.map((item, i) => (
             <li key={i} className='chapter-card'>
-              <ChapterCard data={item}/>
+              <ChapterCard {...item} />
             </li>
           ))}
         </ul>
@@ -33,6 +37,7 @@ const Chapters = ({ surah }) => {
           </li>
         </ul>
       </div> */}
+      fsafd
     </div>
   );
 };

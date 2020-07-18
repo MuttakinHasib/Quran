@@ -122,13 +122,13 @@ export default styled.span`
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  font-size: 25px;
+  font-size: 30px;
   float: right;
   ${'' /* color: ${({ theme }) => theme.colors.text}; */}
   color: #f36;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   &:before {
-    content: '${({ id }) => String.raw`\e${CONTENT[id] || '903'}`}';
+    content: '${({ id,size }) => String.raw`\e${CONTENT[id] || '903'}`}';
   }
 `;

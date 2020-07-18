@@ -1,18 +1,19 @@
 import React from 'react';
 import './ChapterCard.scss';
 import ChapterIcon from '../Chapters/ChapterIcon';
-const ChapterCard = ({ data }) => {
+import { Link } from 'react-router-dom';
+const ChapterCard = (props) => {
   return (
-    <a href={data.id} className='block'>
+    <Link to={props?.id} className='block'>
       <div className='d-flex justify-content-between align-items-center'>
-        <p className='number'>{data.id}</p>
+        <p className='number'>{props?.id}</p>
         <div className='surah-info'>
-          <h4 className='surah-name'>{data.name}</h4>
-          <span className='translated-name'>{data.translated_name}</span>
+          <h4 className='surah-name'>{props?.name}</h4>
+          <span className='translated-name'>{props?.translated_name}</span>
         </div>
-        <ChapterIcon id={data.id} />
+        <ChapterIcon id={props?.id} />
       </div>
-    </a>
+    </Link>
   );
 };
 

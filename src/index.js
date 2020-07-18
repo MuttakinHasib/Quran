@@ -1,19 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ZeitProvider } from '@zeit-ui/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import 'antd/dist/antd.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import { Provider } from 'react-redux';
+// import { createStore, applyMiddleware } from 'redux';
+// import reducers from './redux/reducers';
+// import thunk from 'redux-thunk';
+import { StateProvider } from './context/StateProvider';
+import reducer, { initialState } from './context/reducer';
+
+// const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ZeitProvider>
-      <App />
-    </ZeitProvider>
-  </React.StrictMode>,
+  <StateProvider initialState={initialState} reducer={reducer}>
+    <App />
+  </StateProvider>,
   document.getElementById('root')
 );
 
