@@ -13,8 +13,8 @@ const Header = ({ data }) => {
   console.log(pathname);
   return (
     <header className='sticky-top'>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-        <div className='container'>
+      <nav className='navbar navbar-expand-sm navbar-light bg-light'>
+        <div className='container-fluid'>
           <Link className='navbar-brand' to='/'>
             <img
               src={logo}
@@ -52,7 +52,7 @@ const Header = ({ data }) => {
                   ))}
                 </Select>
               </li>
-              <li className='nav-item ml-2'>
+              <li className='nav-item ml-sm-2 mt-2 mt-sm-0'>
                 <SelectMode />
               </li>
             </ul>

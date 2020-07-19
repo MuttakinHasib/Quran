@@ -4,11 +4,47 @@
   font-style: normal;
   font-weight: 400;
 }
+
 @font-face {
   src: url(./assets/fonts/noorehuda.ttf);
   font-family: noorehuda;
   font-style: normal;
-  font-weight: 400;
+  /* font-weight: 400; */
+}
+
+@font-face {
+  src: url(./assets/fonts/AmiriQuran.ttf);
+  font-family: AmiriQuran;
+  font-style: normal;
+  /* font-weight: 400; */
+}
+
+@font-face {
+  src: url(./assets/fonts/divehi.otf);
+  font-family: divehi;
+  font-style: normal;
+  /* font-weight: 400; */
+}
+
+@font-face {
+  src: url(./assets/fonts/hafs.ttf);
+  font-family: hafs;
+  font-style: normal;
+  /* font-weight: 400; */
+}
+
+@font-face {
+  src: url(./assets/fonts/me_quran.ttf);
+  font-family: me_quran;
+  font-style: normal;
+  /* font-weight: 400; */
+}
+
+@font-face {
+  src: url(./assets/fonts/noorehidayat.ttf);
+  font-family: noorehidayat;
+  font-style: normal;
+  /* font-weight: 400; */
 }
 
 body {
@@ -19,8 +55,9 @@ body {
   font-size: 16px;
   line-height: 1.3;
   /* background-color: #021243 !important; */
-  
+
 }
+
 /* p{
   color: #fff;
 } */

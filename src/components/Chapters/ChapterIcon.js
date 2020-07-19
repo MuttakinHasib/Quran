@@ -125,10 +125,10 @@ export default styled.span`
   font-size: 30px;
   float: right;
   ${'' /* color: ${({ theme }) => theme.colors.text}; */}
-  color: #f36;
+  color: #672CBC;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   &:before {
-    content: '${({ id,size }) => String.raw`\e${CONTENT[id] || '903'}`}';
+    content: '${({ id, size }) => String.raw`\e${CONTENT[id] || '903'}`}';
   }
 `;

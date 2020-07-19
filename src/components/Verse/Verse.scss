@@ -4,5 +4,19 @@
   text-align: right;
   padding: 10px 30px 10px;
   color: #011240;
+  // font-weight: 100;
+}
+
+.verse_key {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  margin: 0;
+  border-radius: 100%;
+  font-size: 20px;
   font-weight: 600;
+  background-color: #F8F5FC;
 }

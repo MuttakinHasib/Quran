@@ -1,6 +1,11 @@
 .banner {
-  background-color: #46b891;
-  // background: linear-gradient(180deg, #6425BC, #021243);
-
+  background: linear-gradient(45deg, #6425bccb, #6425bce3), url('../../assets/images/quran-banner.png');
+  background-position: right;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 45vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

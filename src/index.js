@@ -12,12 +12,15 @@ import * as serviceWorker from './serviceWorker';
 // import thunk from 'redux-thunk';
 import { StateProvider } from './context/StateProvider';
 import reducer, { initialState } from './context/reducer';
+import { ZeitProvider } from '@zeit-ui/react';
 
 // const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <StateProvider initialState={initialState} reducer={reducer}>
-    <App />
+    <ZeitProvider>
+      <App />
+    </ZeitProvider>
   </StateProvider>,
   document.getElementById('root')
 );

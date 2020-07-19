@@ -3,27 +3,14 @@ import quranMajeed from '../../assets/images/quranul-karim.png';
 import './Home.scss';
 import Chapters from '../../components/Chapters/Chapters';
 import QuickLinks from '../../components/QuickLinks/QuickLinks';
-import { useEffect } from 'react';
 import { useStateValue } from '../../context/StateProvider';
-import fetchFromApi from '../../api';
-import { FETCH_DATA } from '../../context/types';
-
-// import { fetchChaptersData } from '../../redux/actions';
+import Spinner from '../../components/Spinner/Spinner';
 
 const Home = () => {
-  const [, dispatch] = useStateValue();
-  const fetchChaptersData = async () => {
-    const { data } = await fetchFromApi.get('/chapters.json');
-    dispatch({
-      type: FETCH_DATA,
-      chapters: data,
-    });
-  };
-
-  useEffect(() => {
-    fetchChaptersData();
-  }, []);
-  return (
+  const [{ chapters }] = useStateValue();
+  return chapters.length === 0 ? (
+    <Spinner />
+  ) : (
     <div>
       {/* Banner */}
       <div className='banner p-5'>
@@ -33,7 +20,7 @@ const Home = () => {
               <img src={quranMajeed} alt='Quran Majeed' className='img-fluid' />
             </div>
             <h1 className='text-light text-center pt-3 mb-0'>
-              The Novel Quran
+              The Nobel Quran
             </h1>
           </div>
         </div>
