@@ -1,65 +1,74 @@
-[{
+[
+  {
     "id": "1",
     "bismillah": true,
     "revelation": "Makkah",
     "name": "Al-Fatihah",
     "verses_count": "7",
     "translated_name": "The Opener",
-    "ayah": [{
+    "ayah": [
+      {
         "id": "1",
         "verse_key": "1:1",
         "text": "بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِيۡمِ",
+        "translated_en": "In the name of God, the Gracious, the Merciful.",
+        "translated_bn": "(আরম্ভ করছি) পরম করুণাময় অসীম দয়াময় আল্লাহর নামে।",
         "sajdah": false,
         "page_number": "1"
-
       },
       {
         "id": "2",
         "verse_key": "1:2",
         "text": "اَلۡحَمۡدُ لِلّٰهِ رَبِّ الۡعٰلَمِيۡنَۙ‏",
+        "translated_en": "Praise be to God, Lord of the Worlds..",
+        "translated_bn": "যাবতীয় প্রশংসা জগৎসমূহের প্রতিপালক আল্লাহরই জন্য।",
         "sajdah": false,
         "page_number": "1"
-
       },
       {
         "id": "3",
         "verse_key": "1:3",
         "text": "الرَّحۡمٰنِ الرَّحِيۡمِۙ‏",
+        "translated_en": "The Most Gracious, the Most Merciful.",
+        "translated_bn": "যিনি পরম করুণাময় অতি দয়ালূ।",
         "sajdah": false,
         "page_number": "1"
-
       },
       {
         "id": "4",
         "verse_key": "1:4",
         "text": "مٰلِكِ يَوۡمِ الدِّيۡنِؕ",
+        "translated_en": "Master of the Day of Judgment.",
+        "translated_bn": "যিনি প্রতিফল দিবসের মালিক।",
         "sajdah": false,
         "page_number": "1"
-
       },
       {
         "id": "5",
         "verse_key": "1:5",
         "text": "اِيَّاكَ نَعۡبُدُ وَاِيَّاكَ نَسۡتَعِيۡنُؕ",
+        "translated_en": "It is You we worship, and upon You we call for help.",
+        "translated_bn": "আমরা কেবল তোমারই ‘ইবাদাত করি এবং কেবলমাত্র তোমারই সাহায্য প্রার্থনা করি।",
         "sajdah": false,
         "page_number": "1"
-
       },
       {
         "id": "6",
         "verse_key": "1:6",
         "text": "اِهۡدِنَا الصِّرَاطَ الۡمُسۡتَقِيۡمَۙ‏",
+        "translated_en": "Guide us to the straight path.",
+        "translated_bn": "আমাদেরকে সরল সঠিক পথ প্রদর্শন কর ও তার প্রতি অটুট থাকার তাওফীক দান কর।",
         "sajdah": false,
         "page_number": "1"
-
       },
       {
         "id": "7",
         "verse_key": "1:7",
-        "text": "ۙ‏ صِرَاطَ الَّذِيۡنَ اَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ الۡمَغۡضُوۡبِ عَلَيۡهِمۡ وَلَا الضَّآلِّيۡنَ",
+        "text": "صِرٰطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّآلِّينَ",
+        "translated_en": "The path of those You have blessed, not of those against whom there is anger, nor of those who are misguided.",
+        "translated_bn": "তাদের পথ, যাদের প্রতি তুমি অনুগ্রহ করেছ। তাদের পথ, যারা গযবপ্রাপ্ত (ইয়াহূদী) ও পথভ্রষ্ট (খ্রিস্টান) নয়।",
         "sajdah": false,
         "page_number": "1"
-
       }
     ]
   },
@@ -70,15 +79,15 @@
     "name": "Al-Baqarah",
     "verses_count": "7",
     "translated_name": "The Cow",
-    "bismillah_text":"بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِيۡمِ",
-    "ayah": [{
-      "id": "1",
-      "verse_key": "2:1",
-      "text": "",
-      "sajdah": false,
-      "page_number": "1"
-
-    }]
+    "bismillah_text": "بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِيۡمِ",
+    "ayah": [
+      {
+        "id": "1",
+        "verse_key": "2:1",
+        "text": "",
+        "sajdah": false,
+        "page_number": "1"
+      }
+    ]
   }
-
 ]

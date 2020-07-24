@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Select } from 'antd';
 import logo from '../../assets/images/quran.png';
 import SelectMode from '../Theme/SelectMode';
 import './Header.scss';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useStateValue } from '../../context/StateProvider';
+import { SettingTwoTone } from '@ant-design/icons';
+import { OPEN_DRAWER } from '../../context/types';
+
 const { Option } = Select;
-const Header = ({ data }) => {
+
+const Header = () => {
   const [{ chapters }] = useStateValue();
+  const [{ isDrawerOpen }, dispatch] = useStateValue();
   const history = useHistory();
   const { pathname } = useLocation();
-  console.log(pathname);
+  const showDrawer = () => {
+    dispatch({
+      type: OPEN_DRAWER,
+      drawer: !isDrawerOpen,
+    });
+  };
   return (
     <header className='sticky-top'>
       <nav className='navbar navbar-expand-sm navbar-light bg-light'>
@@ -26,17 +36,20 @@ const Header = ({ data }) => {
             />
             <span className='font-weight-bold'>&nbsp;Al Quran</span>
           </Link>
-          <div className='navbar-collapse'>
-            <ul className='navbar-nav ml-auto'>
+          <div>
+            <ul className='navbar-nav flex-row ml-auto'>
               <li className='nav-item'>
                 <Select
-                  defaultValue={pathname === '/' ? '/' : '/'}
+                  defaultValue={pathname && `${pathname}`}
                   autoFocus={true}
+                  // defaultActiveFirstOption
                   showSearch
                   style={{ width: 200 }}
                   placeholder='Search surah...'
                   optionFilterProp='children'
-                  onChange={val => history.push(val)}
+                  onChange={val => {
+                    history.push(val);
+                  }}
                   filterOption={(input, option) =>
                     option.children
                       .toLowerCase()
@@ -44,16 +57,27 @@ const Header = ({ data }) => {
                   }
                 >
                   <Option value='/'>Home</Option>
-
                   {chapters.map(({ id, name }) => (
-                    <Option key={name} value={`/${id}`}>
+                    <Option
+                      onClick={e => console.log('hi')}
+                      key={name}
+                      value={`/${id}`}
+                    >
                       {name}
                     </Option>
                   ))}
                 </Select>
               </li>
-              <li className='nav-item ml-sm-2 mt-2 mt-sm-0'>
+              <li className='nav-item d-none d-sm-block ml-3'>
                 <SelectMode />
+              </li>
+              <li className='nav-item ml-3'>
+                <SettingTwoTone
+                  onClick={showDrawer}
+                  // twoToneColor='#7837d3c2'
+                  twoToneColor='#338'
+                  style={{ fontSize: '28px', marginTop: '1px' }}
+                />
               </li>
             </ul>
           </div>

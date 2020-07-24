@@ -122,7 +122,7 @@ export default styled.span`
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  font-size: 30px;
+  font-size: 40px;
   float: right;
   ${'' /* color: ${({ theme }) => theme.colors.text}; */}
   color: #672CBC;
