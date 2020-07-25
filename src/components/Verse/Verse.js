@@ -2,22 +2,31 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useStateValue } from '../../context/StateProvider';
 
-import { Button, useToasts, useClipboard, ButtonGroup } from '@zeit-ui/react';
+import { useToasts, useClipboard} from '@zeit-ui/react';
 import Bookmark from '@zeit-ui/react-icons/bookmark';
 
 import Spinner from '../Spinner/Spinner';
 import Transition from '../Transition/Transition';
 import VerseInfoCard from '../Cards/VerseInfoCard';
-import { Collapse } from 'react-bootstrap';
 import './Verse.scss';
+import Tafseer from '../Tafseer/Tafseer';
+import { Button } from 'antd';
+import {
+  CopyTwoTone,
+  PlayCircleTwoTone,
+  ReadOutlined,
+} from '@ant-design/icons';
 
 const Verse = () => {
   const [, setToast] = useToasts();
   const { copy } = useClipboard();
   const [showTafseer, setShowTafseer] = useState(false);
+  const [tafseerId, setTafseerId] = useState(null);
   const { pathname } = useLocation();
   const getId = pathname.slice(1);
-  const [{ chapters, arabicFontSize, selectedTransition }] = useStateValue();
+  const [
+    { chapters, arabicFontSize, selectedTransition,},
+  ] = useStateValue();
 
   const getVerses = chapters.filter(chapter => chapter.id === getId);
 
@@ -33,45 +42,64 @@ const Verse = () => {
             {verse?.ayahs.map(ayah => (
               <div className='border-bottom card-body my-3' key={ayah?.id}>
                 <div className='d-flex align-items-center'>
-                  <ButtonGroup type='default'>
-                    <Button
-                      size='small'
-                      type='secondary'
-                      auto
-                      onClick={() => {
-                        copy(
-                          `${name} ${ayah.verse_key}\n
-                        ${ayah.text}
-                        ${ayah?.translated_en && ayah.translated_en}
-                        ${
+                  <span className='verse_key mr-5 my-2'>{ayah?.verse_key}</span>
+                  <Button
+                    title='Copy'
+                    icon={<CopyTwoTone style={{ fontSize: '27px' }} />}
+                    className='mr-4 my-2'
+                    type='text'
+                    onClick={() => {
+                      copy(
+                        `${name} ${ayah.verse_key}\n
+                        ${ayah.text}\n${
+                          ayah?.translated_en && ayah.translated_en
+                        }\n${
                           ayah?.transition_bn[selectedTransition] &&
                           ayah.transition_bn[selectedTransition]
+                        }\nTafseer : Ahsanul Bayan\n${
+                          ayah?.tafseer_bn.ahsanul_bayan
                         }
                         `
-                        );
-                        setToast({
-                          text: 'Copied the verse! Alhamdulillah',
-                          type: 'success',
-                        });
-                      }}
-                    >
-                      Copy
-                    </Button>
-                    <Button type='warning'>Play</Button>
-                    <Button disabled icon={<Bookmark />} />
-                    {/* ************************ Problem Here************************************* */}
-                    <Button
-                      key={ayah}
-                      type='success'
-                      onClick={() => setShowTafseer(prev => !prev)}
-                    >
-                      See Tafseer
-                    </Button>
-                    {/* ************************ Problem Here************************************* */}
-                  </ButtonGroup>
+                      );
+                      setToast({
+                        text: 'Copied the verse! Alhamdulillah',
+                        type: 'success',
+                      });
+                    }}
+                  />
+                  <Button
+                    title='Play Audio'
+                    icon={
+                      <PlayCircleTwoTone
+                        twoToneColor='#f36'
+                        style={{ fontSize: '27px' }}
+                      />
+                    }
+                    className='mr-4 my-2'
+                    type='text'
+                  />
+                  <Button
+                    title='Show Tafseer'
+                    icon={
+                      <ReadOutlined
+                        style={{ color: '#4EB862', fontSize: '27px' }}
+                      />
+                    }
+                    className='mr-4 my-2'
+                    type='text'
+                    onClick={() => {
+                      setShowTafseer(prevOpen => !prevOpen);
+                      setTafseerId(ayah?.id);
+                    }}
+                  />
+                  <Button
+                    disabled
+                    title='Bookmark'
+                    type='text'
+                    icon={<Bookmark style={{ fontSize: '27px' }} />}
+                  />
                 </div>
-                <div className='d-flex justify-content-between align-items-center py-3'>
-                  <span className='verse_key'>{ayah?.verse_key}</span>
+                <div className='d-flex justify-content-end align-items-center py-3'>
                   <div>
                     <h4
                       className='arabic-font'
@@ -83,13 +111,11 @@ const Verse = () => {
                     <Transition item={ayah} />
                   </div>
                 </div>
-                {/* ************************ Problem Here************************************* */}
-                <Collapse in={showTafseer}>
-                  <div className='mt-3'>
-                    <p className='text-bn'>{ayah?.tafseer_bn.ahsanul_bayan}</p>
-                  </div>
-                </Collapse>
-                {/* ************************ Problem Here************************************* */}
+                <Tafseer
+                  showTafseer={showTafseer}
+                  tafseerId={tafseerId === ayah?.id}
+                  tafseer={ayah}
+                />
               </div>
             ))}
           </div>

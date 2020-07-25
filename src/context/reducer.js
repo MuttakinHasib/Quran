@@ -7,27 +7,36 @@ import {
   ENGLISH_FONT_SIZE,
   BANGLA_FONT_SIZE,
   SELECT_BANGLA_TRANSITION,
+  TAFSEER_FONT_SIZE,
+  SELECT_TAFSEER,
 } from './types';
 import { getLocalStorageData } from '../utils/getLocalStorageData';
 
 const transitionMode = getLocalStorageData('transitionMode');
 const transitionLanguage = getLocalStorageData('transitionLanguage');
 const selectedTransition = getLocalStorageData('selectedTransition');
+
+const selectedTafseer = getLocalStorageData('selectedTafseer');
+
 const arabicFontSize = getLocalStorageData('arabicFontSize');
 const englishFontSize = getLocalStorageData('englishFontSize');
 const banglaFontSize = getLocalStorageData('banglaFontSize');
-console.log(transitionMode, transitionLanguage,arabicFontSize);
+const tafseerFontSize = getLocalStorageData('tafseerFontSize');
+
 export const initialState = {
   chapters: [],
   isDrawerOpen: false,
   isTransition: transitionMode === null ? true : transitionMode,
   transitionLanguage:
     transitionLanguage === null ? 'bangla' : transitionLanguage,
+
   arabicFontSize: !arabicFontSize ? 55 : arabicFontSize,
   englishFontSize: !englishFontSize ? 25 : englishFontSize,
   banglaFontSize: !banglaFontSize ? 30 : banglaFontSize,
+  tafseerFontSize: !tafseerFontSize ? 23 : tafseerFontSize,
   selectedTransition:
     selectedTransition === null ? 'taisirul_quran' : selectedTransition,
+  selectedTafseer: selectedTafseer === null ? 'fathul_majid' : selectedTafseer,
 };
 
 export default (state, action) => {
@@ -48,6 +57,9 @@ export default (state, action) => {
     case SELECT_BANGLA_TRANSITION:
       return { ...state, selectedTransition: action.transition };
 
+    case SELECT_TAFSEER:
+      return { ...state, selectedTafseer: action.tafseer };
+
     case ARABIC_FONT_SIZE:
       return { ...state, arabicFontSize: action.fontSize };
 
@@ -56,6 +68,9 @@ export default (state, action) => {
 
     case BANGLA_FONT_SIZE:
       return { ...state, banglaFontSize: action.fontSize };
+
+    case TAFSEER_FONT_SIZE:
+      return { ...state, tafseerFontSize: action.fontSize };
 
     case FETCH_DATA:
       return { ...state, chapters: action.chapters };

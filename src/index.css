@@ -76,6 +76,14 @@
   /* color: rgb(110, 110, 110); */
 }
 
+.text-tafseer {
+  font-family: BornopataRegular !important;
+  font-size: 23px;
+  font-weight: 100;
+  line-height: 1.7;
+  /* color: ; */
+}
+
 .text-en {
   font-family: 'Signika', sans-serif;
   font-size: 25px;
@@ -99,13 +107,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  line-height: 1.3;
+  line-height: 1.4;
   width: 100vw;
   overflow-x: hidden;
   color: #021243;
   /* background-color: #021243 !important;
   background-color: #021243b6 !important; */
-
 }
 
 code {
@@ -113,8 +120,8 @@ code {
     monospace;
 }
 
-[class*=" icon-surah"],
-[class^="icon-surah"] {
+[class*=' icon-surah'],
+[class^='icon-surah'] {
   font-family: 'surah_names' !important;
   speak: none;
   font-style: normal;

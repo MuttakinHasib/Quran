@@ -8,7 +8,9 @@ import {
   ARABIC_FONT_SIZE,
   ENGLISH_FONT_SIZE,
   BANGLA_FONT_SIZE,
+  TAFSEER_FONT_SIZE,
   SELECT_BANGLA_TRANSITION,
+  SELECT_TAFSEER,
 } from '../../context/types';
 import { ReadOutlined, FontSizeOutlined } from '@ant-design/icons';
 import './Settings.scss';
@@ -23,9 +25,11 @@ const Settings = () => {
       isTransition,
       transitionLanguage,
       selectedTransition,
+      selectedTafseer,
       arabicFontSize,
       banglaFontSize,
       englishFontSize,
+      tafseerFontSize,
     },
     dispatch,
   ] = useStateValue();
@@ -39,6 +43,9 @@ const Settings = () => {
   const [changeBanglaFontSize, setChangeBanglaFontSize] = useState(
     banglaFontSize
   );
+  const [changeTafseerFontSize, setChangeTafseerFontSize] = useState(
+    tafseerFontSize
+  );
 
   const onClose = () => {
     dispatch({
@@ -48,7 +55,6 @@ const Settings = () => {
   };
 
   const transitionMode = value => {
-    console.log(value);
     dispatch({
       type: TRANSITION_MODE,
       toggleTransition: value,
@@ -72,6 +78,14 @@ const Settings = () => {
     });
     setLocalStorageData('selectedTransition', value);
   };
+  
+  const handleTafseer = value => {
+    dispatch({
+      type: SELECT_TAFSEER,
+      tafseer: value,
+    });
+    setLocalStorageData('selectedTafseer', value);
+  };
 
   const arabicFontHandler = value => {
     setChangeArabicFontSize(value);
@@ -93,12 +107,20 @@ const Settings = () => {
 
   const banglaFontHandler = value => {
     setChangeBanglaFontSize(value);
-    console.log(value);
     dispatch({
       type: BANGLA_FONT_SIZE,
       fontSize: changeBanglaFontSize,
     });
     setLocalStorageData('banglaFontSize', changeBanglaFontSize);
+  };
+
+  const tafseerFontHandler = value => {
+    setChangeTafseerFontSize(value);
+    dispatch({
+      type: TAFSEER_FONT_SIZE,
+      fontSize: changeTafseerFontSize,
+    });
+    setLocalStorageData('tafseerFontSize', changeTafseerFontSize);
   };
 
   return (
@@ -179,28 +201,27 @@ const Settings = () => {
               <span className='text-muted'>Tafseer</span>
             </Divider>
             <div className='ml-4 mb-3'>
-              <h6 className='my-3'>Select Tafseer
-              </h6>
+              <h6 className='my-3'>Select Tafseer</h6>
               <Select
-                placeholder='Select Transition'
-                initialValue={selectedTransition}
+                placeholder='Select Tafseer'
+                initialValue={selectedTafseer}
                 disabled={
                   !isTransition || (transitionLanguage === 'english' && true)
                 }
-                onChange={handleTransition}
+                onChange={handleTafseer}
                 style={{ fontSize: '15px' }}
               >
                 <Select.Option
                   style={{ fontSize: '15px' }}
-                  value='taisirul_quran'
+                  value='fathul_majid'
                 >
-                  Taisirul Quran
+                  Fathul Majid
                 </Select.Option>
                 <Select.Option
                   style={{ fontSize: '15px' }}
-                  value='mujibur_rahman'
+                  value='ahsanul_bayan'
                 >
-                  Mujibur Rahman
+                  Ahsanul Bayan
                 </Select.Option>
               </Select>
             </div>
@@ -272,6 +293,26 @@ const Settings = () => {
                     style={{ margin: '0 16px' }}
                     value={changeBanglaFontSize}
                     onChange={banglaFontHandler}
+                  />
+                </Col>
+              </Row>
+              <h6 className='my-3'>Tafseer Font Size</h6>
+              <Row>
+                <Col span={12}>
+                  <Slider
+                    min={1}
+                    // max={20}
+                    onChange={tafseerFontHandler}
+                    value={changeTafseerFontSize}
+                  />
+                </Col>
+                <Col span={4}>
+                  <InputNumber
+                    min={1}
+                    // max={20}
+                    style={{ margin: '0 16px' }}
+                    value={changeTafseerFontSize}
+                    onChange={tafseerFontHandler}
                   />
                 </Col>
               </Row>
