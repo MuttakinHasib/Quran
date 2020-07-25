@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Select } from 'antd';
 import logo from '../../assets/images/quran.png';
 import SelectMode from '../Theme/SelectMode';
@@ -76,6 +76,7 @@ const Header = () => {
                   onClick={showDrawer}
                   // twoToneColor='#7837d3c2'
                   twoToneColor='#338'
+                  // twoToneColor='#f36'
                   style={{ fontSize: '28px', marginTop: '1px' }}
                 />
               </li>

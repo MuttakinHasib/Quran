@@ -5,9 +5,6 @@ import ChapterCard from '../Cards/ChapterCard';
 
 const Chapters = () => {
   const [{ chapters }] = useStateValue();
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  arr.slice(0, 5).map(item => console.log(item));
-  arr.slice(6, 10).map(item => console.log(item));
   return (
     <div className='row justify-content-between'>
       <div className='col-sm-12 col-md-6 col-lg-6 col-xl-4 my-3'>

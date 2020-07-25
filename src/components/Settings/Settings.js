@@ -1,17 +1,45 @@
-import React from 'react';
-import { Drawer, Collapse, Switch } from 'antd';
+import React, { useState } from 'react';
+import { Drawer, Collapse, Switch, Row, Col, Slider, InputNumber } from 'antd';
 import { useStateValue } from '../../context/StateProvider';
 import {
   OPEN_DRAWER,
   TRANSITION_MODE,
   TRANSITION_LANGUAGE,
+  ARABIC_FONT_SIZE,
+  ENGLISH_FONT_SIZE,
+  BANGLA_FONT_SIZE,
+  SELECT_BANGLA_TRANSITION,
 } from '../../context/types';
-import { ReadOutlined } from '@ant-design/icons';
+import { ReadOutlined, FontSizeOutlined } from '@ant-design/icons';
 import './Settings.scss';
-import { Select } from '@zeit-ui/react';
+import { Select, Divider } from '@zeit-ui/react';
+import { setLocalStorageData } from '../../utils/setLocalStorageData';
 const { Panel } = Collapse;
+
 const Settings = () => {
-  const [{ isDrawerOpen, isTransition }, dispatch] = useStateValue();
+  const [
+    {
+      isDrawerOpen,
+      isTransition,
+      transitionLanguage,
+      selectedTransition,
+      arabicFontSize,
+      banglaFontSize,
+      englishFontSize,
+    },
+    dispatch,
+  ] = useStateValue();
+
+  const [changeArabicFontSize, setChangeArabicFontSize] = useState(
+    arabicFontSize
+  );
+  const [changeEnglishFontSize, setChangeEnglishFontSize] = useState(
+    englishFontSize
+  );
+  const [changeBanglaFontSize, setChangeBanglaFontSize] = useState(
+    banglaFontSize
+  );
+
   const onClose = () => {
     dispatch({
       type: OPEN_DRAWER,
@@ -20,10 +48,13 @@ const Settings = () => {
   };
 
   const transitionMode = value => {
+    console.log(value);
     dispatch({
       type: TRANSITION_MODE,
       toggleTransition: value,
     });
+    setLocalStorageData('transitionMode', value);
+    // localStorage.setItem('transitionMode', value);
   };
 
   const handleLanguage = value => {
@@ -31,10 +62,48 @@ const Settings = () => {
       type: TRANSITION_LANGUAGE,
       selectTransitionLanguage: value,
     });
+    setLocalStorageData('transitionLanguage', value);
   };
+
+  const handleTransition = value => {
+    dispatch({
+      type: SELECT_BANGLA_TRANSITION,
+      transition: value,
+    });
+    setLocalStorageData('selectedTransition', value);
+  };
+
+  const arabicFontHandler = value => {
+    setChangeArabicFontSize(value);
+    dispatch({
+      type: ARABIC_FONT_SIZE,
+      fontSize: changeArabicFontSize,
+    });
+    setLocalStorageData('arabicFontSize', changeArabicFontSize);
+  };
+
+  const englishFontHandler = value => {
+    setChangeEnglishFontSize(value);
+    dispatch({
+      type: ENGLISH_FONT_SIZE,
+      fontSize: changeEnglishFontSize,
+    });
+    setLocalStorageData('englishFontSize', changeEnglishFontSize);
+  };
+
+  const banglaFontHandler = value => {
+    setChangeBanglaFontSize(value);
+    console.log(value);
+    dispatch({
+      type: BANGLA_FONT_SIZE,
+      fontSize: changeBanglaFontSize,
+    });
+    setLocalStorageData('banglaFontSize', changeBanglaFontSize);
+  };
+
   return (
     <Drawer
-      placement='right'
+      placement='left'
       closable={false}
       onClose={onClose}
       visible={isDrawerOpen}
@@ -48,10 +117,6 @@ const Settings = () => {
           accordion
           bordered={false}
           defaultActiveKey={['1']}
-          // expandIcon={({ isActive }) => (
-          //   <CaretRightOutlined rotate={isActive ? 90 : 0} />
-          // )}
-          // expandIconPosition='right'
           className='site-collapse-custom-collapse'
         >
           <Panel
@@ -62,14 +127,17 @@ const Settings = () => {
             key='1'
             className='site-collapse-custom-panel'
           >
+            <Divider volume={15} y={3}>
+              <span className='text-muted'>Transition</span>
+            </Divider>
             <div className='d-flex align-items-center ml-4 mb-3'>
-              <h5 className='mr-4 mb-0'>Translation Mode</h5>
-              <Switch defaultChecked onChange={transitionMode} />
+              <h6 className='mr-4 mb-0'>Translation Mode</h6>
+              <Switch defaultChecked={isTransition} onChange={transitionMode} />
             </div>
             <div className='d-flex align-items-center ml-4 mb-3'>
               <Select
                 placeholder='Select Language'
-                initialValue='english'
+                initialValue={transitionLanguage}
                 disabled={!isTransition}
                 onChange={handleLanguage}
                 style={{ fontSize: '15px' }}
@@ -82,29 +150,132 @@ const Settings = () => {
                 </Select.Option>
               </Select>
             </div>
-            {/* <div className='ml-4 mb-3'>
-              <h5 className='mr-4 mb-3'>Select Translation</h5>
+            <div className='ml-4 mb-3'>
+              <h6 className='my-3'>Select Bangla Transition</h6>
               <Select
-                placeholder='Select Language'
-                initialValue='english'
-                disabled={!isTransition}
+                placeholder='Select Transition'
+                initialValue={selectedTransition}
+                disabled={
+                  !isTransition || (transitionLanguage === 'english' && true)
+                }
+                onChange={handleTransition}
                 style={{ fontSize: '15px' }}
               >
-                <Select.Option style={{ fontSize: '15px' }} value='english'>
-                  English
+                <Select.Option
+                  style={{ fontSize: '15px' }}
+                  value='taisirul_quran'
+                >
+                  Taisirul Quran
                 </Select.Option>
-                <Select.Option style={{ fontSize: '15px' }} value='bangla'>
-                  Bangla
+                <Select.Option
+                  style={{ fontSize: '15px' }}
+                  value='mujibur_rahman'
+                >
+                  Mujibur Rahman
                 </Select.Option>
               </Select>
-            </div> */}
+            </div>
+            <Divider volume={15} y={3}>
+              <span className='text-muted'>Tafseer</span>
+            </Divider>
+            <div className='ml-4 mb-3'>
+              <h6 className='my-3'>Select Tafseer
+              </h6>
+              <Select
+                placeholder='Select Transition'
+                initialValue={selectedTransition}
+                disabled={
+                  !isTransition || (transitionLanguage === 'english' && true)
+                }
+                onChange={handleTransition}
+                style={{ fontSize: '15px' }}
+              >
+                <Select.Option
+                  style={{ fontSize: '15px' }}
+                  value='taisirul_quran'
+                >
+                  Taisirul Quran
+                </Select.Option>
+                <Select.Option
+                  style={{ fontSize: '15px' }}
+                  value='mujibur_rahman'
+                >
+                  Mujibur Rahman
+                </Select.Option>
+              </Select>
+            </div>
           </Panel>
           <Panel
-            header='Reading Settings'
+            extra={
+              <FontSizeOutlined style={{ color: '#f56', fontSize: '25px' }} />
+            }
+            header='Font Settings'
             key='2'
             className='site-collapse-custom-panel'
           >
-            hi
+            <div className='ml-4 mb-3'>
+              <h6 className='my-3'>Arabic Font Size</h6>
+              <Row>
+                <Col span={12}>
+                  <Slider
+                    min={1}
+                    // max={20}
+                    onChange={arabicFontHandler}
+                    value={changeArabicFontSize}
+                  />
+                </Col>
+                <Col span={4}>
+                  <InputNumber
+                    min={1}
+                    // max={20}
+                    style={{ margin: '0 16px' }}
+                    value={changeArabicFontSize}
+                    onChange={arabicFontHandler}
+                  />
+                </Col>
+              </Row>
+
+              <h6 className='my-3'>English Font Size</h6>
+              <Row>
+                <Col span={12}>
+                  <Slider
+                    min={1}
+                    // max={20}
+                    onChange={englishFontHandler}
+                    value={changeEnglishFontSize}
+                  />
+                </Col>
+                <Col span={4}>
+                  <InputNumber
+                    min={1}
+                    // max={20}
+                    style={{ margin: '0 16px' }}
+                    value={changeEnglishFontSize}
+                    onChange={englishFontHandler}
+                  />
+                </Col>
+              </Row>
+              <h6 className='my-3'>Bangla Font Size</h6>
+              <Row>
+                <Col span={12}>
+                  <Slider
+                    min={1}
+                    // max={20}
+                    onChange={banglaFontHandler}
+                    value={changeBanglaFontSize}
+                  />
+                </Col>
+                <Col span={4}>
+                  <InputNumber
+                    min={1}
+                    // max={20}
+                    style={{ margin: '0 16px' }}
+                    value={changeBanglaFontSize}
+                    onChange={banglaFontHandler}
+                  />
+                </Col>
+              </Row>
+            </div>
           </Panel>
         </Collapse>
       </div>

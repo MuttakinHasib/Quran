@@ -6,13 +6,20 @@
     "name": "Al-Fatihah",
     "verses_count": "7",
     "translated_name": "The Opener",
-    "ayah": [
+    "ayahs": [
       {
         "id": "1",
         "verse_key": "1:1",
         "text": "بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِيۡمِ",
         "translated_en": "In the name of God, the Gracious, the Merciful.",
-        "translated_bn": "(আরম্ভ করছি) পরম করুণাময় অসীম দয়াময় আল্লাহর নামে।",
+        "transition_bn": {
+          "taisirul_quran": "(আরম্ভ করছি) পরম করুণাময় অসীম দয়াময় আল্লাহর নামে।",
+          "mujibur_rahman": ""
+        },
+        "tafseer_bn": {
+          "fathul_majid": "",
+          "ahsanul_bayan": "বিসমিল্লাহ'র পূর্বে 'আক্বরাউ' 'আবদাউ' অথবা 'আতলু' ফে'ল (ক্রিয়া) উহ্য আছে। অর্থাৎ, আল্লাহর নাম নিয়ে পড়ছি অথবা শুরু করছি কিংবা তেলাঅত আরম্ভ করছি। প্রত্যেক গুরুত্বপূর্ণ কাজ আরম্ভ করার পূর্বে 'বিসমিল্লাহ' পড়ার প্রতি তাকীদ করা হয়েছে। সুতরাং নির্দেশ করা হয়েছে যে, খাওয়া, যবেহ করা, ওযু করা এবং সহবাস করার পূর্বে 'বিসমিল্লাহ' পড়। অবশ্য ক্বুরআনে করীম তেলাঅত করার সময় 'বিসমিল্লাহির রাহমানির রাহীম' পড়ার পূর্বে 'আউযু বিল্লাহি মিনাশ্শায়ত্বানির রাজীম' পড়াও অত্যাবশ্যক। মহান আল্লাহ বলেছেন, \"অতএব যখন তুমি ক্বুরআন পাঠ করবে, তখন বিতাড়িত শয়তান থেকে আল্লাহর আশ্রয় প্রার্থনা কর।\" (সূরা নাহল ১৬:৯৮ আয়াত)।"
+        },
         "sajdah": false,
         "page_number": "1"
       },
@@ -21,7 +28,14 @@
         "verse_key": "1:2",
         "text": "اَلۡحَمۡدُ لِلّٰهِ رَبِّ الۡعٰلَمِيۡنَۙ‏",
         "translated_en": "Praise be to God, Lord of the Worlds..",
-        "translated_bn": "যাবতীয় প্রশংসা জগৎসমূহের প্রতিপালক আল্লাহরই জন্য।",
+        "transition_bn": {
+          "taisirul_quran": "যাবতীয় প্রশংসা জগৎসমূহের প্রতিপালক আল্লাহরই জন্য।",
+          "mujibur_rahman": ""
+        },
+        "tafseer_bn": {
+          "fathul_majid": "",
+          "ahsanul_bayan": "(আরম্ভ করছি) পরম করুণাময় অসীম দয়াময় আল্লাহর নামে।"
+        },
         "sajdah": false,
         "page_number": "1"
       },
@@ -30,7 +44,14 @@
         "verse_key": "1:3",
         "text": "الرَّحۡمٰنِ الرَّحِيۡمِۙ‏",
         "translated_en": "The Most Gracious, the Most Merciful.",
-        "translated_bn": "যিনি পরম করুণাময় অতি দয়ালূ।",
+        "transition_bn": {
+          "taisirul_quran": "যিনি পরম করুণাময় অতি দয়ালূ।",
+          "mujibur_rahman": ""
+        },
+        "tafseer_bn": {
+          "fathul_majid": "",
+          "ahsanul_bayan": ""
+        },
         "sajdah": false,
         "page_number": "1"
       },
@@ -39,7 +60,14 @@
         "verse_key": "1:4",
         "text": "مٰلِكِ يَوۡمِ الدِّيۡنِؕ",
         "translated_en": "Master of the Day of Judgment.",
-        "translated_bn": "যিনি প্রতিফল দিবসের মালিক।",
+        "transition_bn": {
+          "taisirul_quran": "যিনি প্রতিফল দিবসের মালিক।",
+          "mujibur_rahman": ""
+        },
+        "tafseer_bn": {
+          "fathul_majid": "",
+          "ahsanul_bayan": ""
+        },
         "sajdah": false,
         "page_number": "1"
       },
@@ -48,7 +76,14 @@
         "verse_key": "1:5",
         "text": "اِيَّاكَ نَعۡبُدُ وَاِيَّاكَ نَسۡتَعِيۡنُؕ",
         "translated_en": "It is You we worship, and upon You we call for help.",
-        "translated_bn": "আমরা কেবল তোমারই ‘ইবাদাত করি এবং কেবলমাত্র তোমারই সাহায্য প্রার্থনা করি।",
+        "transition_bn": {
+          "taisirul_quran": "আমরা কেবল তোমারই ‘ইবাদাত করি এবং কেবলমাত্র তোমারই সাহায্য প্রার্থনা করি।",
+          "mujibur_rahman": ""
+        },
+        "tafseer_bn": {
+          "fathul_majid": "",
+          "ahsanul_bayan": ""
+        },
         "sajdah": false,
         "page_number": "1"
       },
@@ -57,7 +92,14 @@
         "verse_key": "1:6",
         "text": "اِهۡدِنَا الصِّرَاطَ الۡمُسۡتَقِيۡمَۙ‏",
         "translated_en": "Guide us to the straight path.",
-        "translated_bn": "আমাদেরকে সরল সঠিক পথ প্রদর্শন কর ও তার প্রতি অটুট থাকার তাওফীক দান কর।",
+        "transition_bn": {
+          "taisirul_quran": "আমাদেরকে সরল সঠিক পথ প্রদর্শন কর ও তার প্রতি অটুট থাকার তাওফীক দান কর।",
+          "mujibur_rahman": ""
+        },
+        "tafseer_bn": {
+          "fathul_majid": "",
+          "ahsanul_bayan": ""
+        },
         "sajdah": false,
         "page_number": "1"
       },
@@ -66,7 +108,14 @@
         "verse_key": "1:7",
         "text": "صِرٰطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّآلِّينَ",
         "translated_en": "The path of those You have blessed, not of those against whom there is anger, nor of those who are misguided.",
-        "translated_bn": "তাদের পথ, যাদের প্রতি তুমি অনুগ্রহ করেছ। তাদের পথ, যারা গযবপ্রাপ্ত (ইয়াহূদী) ও পথভ্রষ্ট (খ্রিস্টান) নয়।",
+        "transition_bn": {
+          "taisirul_quran": "তাদের পথ, যাদের প্রতি তুমি অনুগ্রহ করেছ। তাদের পথ, যারা গযবপ্রাপ্ত (ইয়াহূদী) ও পথভ্রষ্ট (খ্রিস্টান) নয়।",
+          "mujibur_rahman": ""
+        },
+        "tafseer_bn": {
+          "fathul_majid": "",
+          "ahsanul_bayan": ""
+        },
         "sajdah": false,
         "page_number": "1"
       }
@@ -77,16 +126,25 @@
     "bismillah": true,
     "revelation": "Makkah",
     "name": "Al-Baqarah",
-    "verses_count": "7",
+    "verses_count": "286",
     "translated_name": "The Cow",
     "bismillah_text": "بِسۡمِ اللّٰهِ الرَّحۡمٰنِ الرَّحِيۡمِ",
-    "ayah": [
+    "ayahs": [
       {
         "id": "1",
         "verse_key": "2:1",
-        "text": "",
+        "text": "الٓمٓ",
+        "translated_en": "Alif, Lam, Meem",
+        "transition_bn": {
+          "taisirul_quran": "আলিফ, লাম, মীম।",
+          "mujibur_rahman": ""
+        },
+        "tafseer_bn": {
+          "fathul_majid": "",
+          "ahsanul_bayan": ""
+        },
         "sajdah": false,
-        "page_number": "1"
+        "page_number": "2"
       }
     ]
   }

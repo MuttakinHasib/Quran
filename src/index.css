@@ -72,6 +72,7 @@
   font-family: BenSenHandwriting !important;
   font-size: 30px;
   font-weight: 100;
+  color: rgba(0, 0, 0, 0.774);
   /* color: rgb(110, 110, 110); */
 }
 
@@ -85,7 +86,7 @@
   font-family: noorehuda;
   font-size: 55px;
   text-align: right;
-  padding: 10px 30px 10px;
+  padding: 10px 0px 10px 30px;
   color: #011240;
   /* font-weight: 100; */
 }
@@ -106,10 +107,6 @@ body {
   background-color: #021243b6 !important; */
 
 }
-
-/* p{
-  color: #fff;
-} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
